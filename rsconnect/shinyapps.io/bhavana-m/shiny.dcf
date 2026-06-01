@@ -1,0 +1,12 @@
+name: shiny
+title: shiny
+username: bhavana-m
+account: bhavana-m
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 17375128
+bundleId:
+url: https://bhavana-m.shinyapps.io/shiny/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
