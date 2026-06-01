@@ -6,9 +6,7 @@ library(plotly)
 library(DT)
 library(dplyr)
 
-# -----------------------------
-# SAMPLE SUSTAINABILITY DATA
-# -----------------------------
+
 sustainability_data <- data.frame(
 
   Building = c(
@@ -56,9 +54,7 @@ sustainability_data <- data.frame(
     800
   )
 )
-# -----------------------------
-# UI
-# -----------------------------
+
 
 ui <- navbarPage(
 
@@ -78,9 +74,6 @@ ui <- navbarPage(
     fg = "#1a1a1a"
   ),
 
-  # -----------------------------
-  # OVERVIEW
-  # -----------------------------
 
   tabPanel(
 
@@ -171,9 +164,7 @@ ui <- navbarPage(
     )
   ),
 
-  # -----------------------------
-  # ENERGY
-  # -----------------------------
+
 
   tabPanel(
 
@@ -202,9 +193,7 @@ ui <- navbarPage(
     )
   ),
 
-  # -----------------------------
-  # CARBON
-  # -----------------------------
+
 
   tabPanel(
 
@@ -233,9 +222,7 @@ ui <- navbarPage(
     )
   ),
 
-  # -----------------------------
-  # UTILITIES
-  # -----------------------------
+
 
   tabPanel(
 
@@ -281,9 +268,6 @@ ui <- navbarPage(
     )
   ),
 
-  # -----------------------------
-  # DATA
-  # -----------------------------
 
   tabPanel(
 
@@ -312,12 +296,10 @@ ui <- navbarPage(
     )
   )
 )
-# -----------------------------
-# SERVER
-# -----------------------------
+
 server <- function(input, output, session) {
 
-  # OVERVIEW PLOT
+
   output$overview_plot <- renderPlotly({
 
     p <- ggplot(
@@ -341,7 +323,7 @@ server <- function(input, output, session) {
     ggplotly(p)
   })
 
-  # ENERGY PLOT
+
   output$energy_plot <- renderPlot({
 
     ggplot(
@@ -363,7 +345,7 @@ server <- function(input, output, session) {
       )
   })
 
-  # CARBON PLOT
+  
   output$carbon_plot <- renderPlot({
 
     ggplot(
@@ -385,7 +367,7 @@ server <- function(input, output, session) {
       )
   })
 
-  # WATER PLOT
+
   output$water_plot <- renderPlot({
 
     ggplot(
@@ -407,7 +389,7 @@ server <- function(input, output, session) {
       )
   })
 
-  # WASTE PLOT
+
   output$waste_plot <- renderPlot({
 
     ggplot(
@@ -429,7 +411,7 @@ server <- function(input, output, session) {
       )
   })
 
-  # DATA TABLE
+
   output$data_table <- renderDT({
 
     datatable(
@@ -444,8 +426,6 @@ server <- function(input, output, session) {
   })
 }
 
-# -----------------------------
-# RUN APP
-# -----------------------------
+
 shinyApp(ui, server)
 
